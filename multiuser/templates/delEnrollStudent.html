@@ -1,0 +1,54 @@
+<!--extends html header-->
+{% extends 'header.html' %}
+<!--load filter tag-->
+{% load custom_filters %}
+<!--load project title in url-->
+{% block title %}MultiUser{% endblock %}
+<!--load html contents-->
+{% block content %}
+
+
+<div class="container-fluid mt-4 border p-5 m-auto">
+  <h1 class="text-center">Teacher Dashbord Page</h1>
+  <hr>
+
+  <div class="container-fluid mt-4">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex veniam impedit rerum minus fugit quam, ad
+      enim libero ipsa atque quasi fugiat necessitatibus hic praesentium, consequuntur deleniti unde a.</p>
+
+    <div class="col-lg-5 col-md-8 mx-auto ui segment p-4 baseBlock border">
+      <br>
+      <h1 class="display-4 text-center">Delete Students Enrollment</h1>
+      <hr>
+
+      <!--required msg-->
+      <div class="ui warning message" id="message" {% if not error %} hidden {% endif %}>
+        {{error}}
+      </div>
+      <!--required msg-->
+
+
+      <form class="ui form" id="form" onsubmit="" action="/delEnrollStudent/" method="POST">
+
+        {% csrf_token %}
+        <div class="field">
+          <label>Enrollment No</label>
+          <input type="text" class="form-control" name="studentId" placeholder="">
+        </div>
+
+
+        <div class="">
+          <button class="btn-info btn btn-block" type="submit">Delete Enrollment of Student</button>
+        </div>
+
+
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "./header.html" %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+</head>
+
+
+<div class="container mt-4">
+
+  <div class="col-lg-5 col-md-8 mx-auto ui segment p-4 baseBlock border">
+    <br>
+    <h1 class="display-4 text-center">Login From Here</h1>
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <a href="/studentLogin" class="btn-info btn btn-block" id="submitButton" type="submit">Student Login</a>
+      </div>
+      <div class="col-6">
+        <a href="/teacherLogin" class="btn-info btn btn-block" id="submitButton" type="submit">Teacher Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</html>
+
+{% endblock %}

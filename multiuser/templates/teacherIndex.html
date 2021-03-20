@@ -1,0 +1,54 @@
+<!--extends html header-->
+{% extends 'header.html' %}
+<!--load filter tag-->
+{% load custom_filters %}
+<!--load project title in url-->
+{% block title %}MultiUser{% endblock %}
+<!--load html contents-->
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+
+
+  <div class="container-fluid mt-4 border p-5 m-auto">
+    <h1 class="text-center">Teacher Dashbord page</h1>
+    <hr>
+
+    <div class="container-fluid mt-4">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex veniam impedit rerum minus fugit quam, ad
+        enim libero ipsa atque quasi fugiat necessitatibus hic praesentium, consequuntur deleniti unde a.</p>
+
+      <div class="container mt-4">
+
+        <div class="col-lg-5 col-md-8 mx-auto ui segment p-4 baseBlock border">
+          <br>
+          <h1 class="display-4 text-center">Teacher Dashbord page</h1>
+          <hr>
+          <div class="row">
+            <div class="col-6">
+              <a href="/enrollNewStudent" class="btn-info btn btn-block" id="submitButton" type="submit">Enrollment New
+                Student</a>
+            </div>
+            <div class="col-6">
+              <a href="/delEnrollStudent" class="btn-info btn btn-block" id="submitButton" type="submit">Delete
+                Enrollment Student</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+</body>
+
+</html>
+
+{% endblock %}

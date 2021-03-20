@@ -1,0 +1,85 @@
+{% extends "./header.html" %}
+
+{% block content %}
+
+<div class="ui active dimmer" id="loading" hidden>
+    <div class="ui massive text loader">Loading</div>
+</div>
+
+
+<div class="container mt-4">
+
+    <div class="col-lg-5 col-md-8 mx-auto ui segment p-4 baseBlock border">
+        <br>
+        <h1 class="display-4 text-center">Student Registration</h1>
+        <hr>
+
+        <!--required msg-->
+        <div class="ui warning message" id="message" {% if not error %} hidden {% endif %}>
+            {{error}}
+        </div>
+        <!--required msg-->
+
+
+        <form class="ui form" id="form" onsubmit="return validate(event)" action="/studentSignup/" method="POST">
+
+            {% csrf_token %}
+            <div class="field">
+                <label>Enrollment No</label>
+                <input type="text" class="form-control" name="studentId" placeholder="">
+            </div>
+
+            <div class="field">
+                <label>Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name">
+            </div>
+            <div class="field">
+                <label>Phone</label>
+                <input type="text" class="form-control" name="phone" placeholder="9999XXXXX">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
+            </div>
+            <div class="field">
+                <label>Father Name</label>
+                <input type="text" class="form-control" name="father" placeholder="Father Name">
+            </div>
+            <div class="field">
+                <label>Branch</label>
+                <input type="text" class="form-control" name="branch" placeholder="CS/Machenic/Electic">
+            </div>
+            <div class="field">
+                <label>Gender</label>
+                <input type="text" class="form-control" name="gender" placeholder="Male/Female">
+            </div>
+            <div class="field">
+                <label>Address</label>
+                <input type="text" class="form-control" name="address" placeholder="Address">
+            </div>
+
+
+            <div class="field">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" placeholder="**********">
+            </div>
+            <div class="field">
+                <label>Re-Enter Password</label>
+                <input type="password" class="form-control" name="repassword" placeholder="**********">
+            </div>
+            <div id="verificationInput" class="field" hidden>
+                <label>Varification Code</label>
+                <input type="text" id="code" name="code" placeholder="12121212">
+            </div>
+            
+            <button class="btn-info btn btn-block" id="submitButton" type="submit">Submit</button>
+            <a class="ui button teal btn btn-block" onclick="verifyCode()" hidden id="verifyButton">Verify</a>
+            
+        </form>
+    </div>
+</div>
+
+{% load static %}
+<script src="{% static 'multiuser/js/signup.js' %}"></script>
+
+{% endblock %}
