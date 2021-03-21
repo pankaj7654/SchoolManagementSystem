@@ -3,6 +3,7 @@ from django.shortcuts import render , redirect
 from multiuser.models.user import Student,Teacher , AddStudent ,AddTeacher
 
 
+# Add new student enrollment
 
 class NewAddStudent(View):
     def get(self , request):
@@ -27,7 +28,7 @@ class NewAddStudent(View):
             
 
 
-
+# delete Enrolled student
 
 class DeleteEnrolledStudent(View):
     def get(self , request):
@@ -36,13 +37,10 @@ class DeleteEnrolledStudent(View):
 
     def post(self , request):
         studentId = request.POST.get('studentId')
-        print(studentId,"RRRRRRRRRRRRRRRRRRRRRRRRRR")
         try:
             if studentId:
                 studentobj = AddStudent.objects.get(studentId=studentId)
-                print(studentobj,"KKKKKKKKKKKKKKKKKKKKKKKK")
                 result = studentobj.delete()
-                print(result,"EEEEEEEEEEEEEEEEEEEEEEEEE")
                 return render(request , 'teacherIndex.html', {'error' : "Successfully Enrollment Deleted"})
             else:
                 return render(request , 'delEnrollStudent.html', {'error' : "Please enter Valid Enrollment"})
