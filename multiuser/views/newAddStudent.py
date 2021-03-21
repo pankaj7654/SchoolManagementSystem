@@ -26,19 +26,23 @@ class NewAddStudent(View):
             return render(request , 'teacherIndex.html', {'error' : "Failed Enrollment From Orginization"})
             
 
+
+
+
 class DeleteEnrolledStudent(View):
     def get(self , request):
         return render(request, 'delEnrollStudent.html')
-
+        
 
     def post(self , request):
         studentId = request.POST.get('studentId')
+        print(studentId,"RRRRRRRRRRRRRRRRRRRRRRRRRR")
         try:
             if studentId:
-                user = AddStudent(studentId=studentId)
-                print(user,"KKKKKKKKKKKKKKKKKKKKKKKK")
-                result = user.all().delete()
-                print("EEEEEEEEEEEEEEEEEEEEEEEEE")
+                studentobj = AddStudent.objects.get(studentId=studentId)
+                print(studentobj,"KKKKKKKKKKKKKKKKKKKKKKKK")
+                result = studentobj.delete()
+                print(result,"EEEEEEEEEEEEEEEEEEEEEEEEE")
                 return render(request , 'delEnrollStudent.html', {'error' : "Successfully Enrollment Deleted"})
             else:
                 return render(request , 'teacherIndex.html', {'error' : "Failed Enrollment Deletion"})
