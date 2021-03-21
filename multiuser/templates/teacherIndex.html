@@ -30,6 +30,11 @@
           <br>
           <h1 class="display-4 text-center">Teacher Dashbord page</h1>
           <hr>
+          <!--required msg-->
+          <div class="ui warning message" id="message" {% if not error %} hidden {% endif %}>
+            {{error}}
+          </div>
+          <!--required msg-->
           <div class="row">
             <div class="col-6">
               <a href="/enrollNewStudent" class="btn-info btn btn-block" id="submitButton" type="submit">Enrollment New
@@ -42,7 +47,7 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
 
 </body>

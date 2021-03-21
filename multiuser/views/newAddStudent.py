@@ -18,12 +18,12 @@ class NewAddStudent(View):
             if studentId:
                 user = AddStudent(studentId=studentId,name=name,branch=branch,gender=gender)
                 result = user.save()
-                return render(request , 'enrollNewStudent.html', {'error' : "Successfully Enrollment From Orginization"})
+                return render(request , 'teacherIndex.html', {'error' : "Successfully Enrollment From Orginization"})
             else:
-                return render(request , 'teacherIndex.html', {'error' : "Failed Enrollment From Orginization"})
+                return render(request , 'enrollNewStudent.html', {'error' : "Failed Enrollment From Orginization"})
        
         except:
-            return render(request , 'teacherIndex.html', {'error' : "Failed Enrollment From Orginization"})
+            return render(request , 'enrollNewStudent.html', {'error' : "Failed Enrollment From Orginization"})
             
 
 
@@ -43,10 +43,10 @@ class DeleteEnrolledStudent(View):
                 print(studentobj,"KKKKKKKKKKKKKKKKKKKKKKKK")
                 result = studentobj.delete()
                 print(result,"EEEEEEEEEEEEEEEEEEEEEEEEE")
-                return render(request , 'delEnrollStudent.html', {'error' : "Successfully Enrollment Deleted"})
+                return render(request , 'teacherIndex.html', {'error' : "Successfully Enrollment Deleted"})
             else:
-                return render(request , 'teacherIndex.html', {'error' : "Failed Enrollment Deletion"})
+                return render(request , 'delEnrollStudent.html', {'error' : "Please enter Valid Enrollment"})
         
         except:
-            return render(request , 'teacherIndex.html', {'error' : "Failed Enrollment Deletion"})
+            return render(request , 'delEnrollStudent.html', {'error' :  "Please enter Valid Enrollment"})
 
